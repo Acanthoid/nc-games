@@ -1,10 +1,11 @@
-import getReviews from "../Api";
-import {useState, useEffect } from 'react'
-import Article from "./Article";
+import { getReviews } from "../Api.js";
+import {useState, useEffect } from 'react';
+import ReviewLister from "./ReviewLister.js";
 
 function Home() {
     const [reviews, setReviews] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    
 
     useEffect(() => {
         setIsLoading(true);
@@ -15,22 +16,7 @@ function Home() {
     }, []);
 
 if (isLoading) return <p className="loading">Loading...</p>
-    return (
-        <section className="reviews">
-            <ul>
-            {reviews.map(
-                (
-                    review
-                ) => {
-                    return (
-                    <Article review={review}/>
-                    )
-                }
-            )}
-            </ul>
-        </section>
-        
-    )
+    return ReviewLister(reviews)
 }
 
 export default Home;
