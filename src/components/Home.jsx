@@ -1,5 +1,6 @@
 import getReviews from "../Api";
 import {useState, useEffect } from 'react'
+import Article from "./Article";
 
 function Home() {
     const [reviews, setReviews] = useState([])
@@ -18,24 +19,11 @@ if (isLoading) return <p className="loading">Loading...</p>
         <section className="reviews">
             <ul>
             {reviews.map(
-                ({
-                    review_id,
-                    title,
-                    review_body,
-                    review_img_url,
-                }) => {
+                (
+                    review
+                ) => {
                     return (
-                        <li key={review_id}>
-                            <img className='img' src={review_img_url}/>
-                            <br/>
-                            <br/>
-                            Name: {title}
-                            <br/>
-                            <br/>
-                            Review: {review_body}
-                            <br/>
-                            <br/>
-                        </li>
+                    <Article review={review}/>
                     )
                 }
             )}
