@@ -1,27 +1,26 @@
 import { Link } from "react-router-dom";
+import { getNavs } from "../Api";
 
 
 const NavBar = () => {
-    return (
-        <nav className="navBar">
-            <Link to='/'>Home   </Link>
-
-            <Link to='/categories/stratergy'>stratergy    </Link>
-
-            <Link to='/categories/hidden-roles'>hidden roles    </Link>
-
-            <Link to='/categories/dexterity'>dexterity    </Link>
-
-            <Link to='/categories/push-your-luck'>push your luck    </Link>
-
-            <Link to='/categories/roll-and-write'>roll and write    </Link>
-
-            <Link to='/categories/deck-builder'>deck builder    </Link>
-
-            <Link to='/categories/engine-building'>engine building    </Link>
-
-        </nav>
-    );
+    getNavs().then(({categories}) => {
+        (
+            <nav className="navBar">
+            {categories.map(
+            (
+                category
+            ) => {
+                const category_link = `/categories/${category.slug}`
+                return (
+                    <li key={category.slug}>
+                        <Link to={category_link}>category</Link>
+                    </li>
+                )
+            }
+            )}
+            </nav>
+        )
+    })
 };
     
 export default NavBar;
