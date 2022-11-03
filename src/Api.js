@@ -12,3 +12,8 @@ export const getReview = (review_id) => {
 return fetch(`https://game-reviews-rated.herokuapp.com/api/reviews/${review_id}`)
 .then((res) => res.json());
 }
+
+export const getNavs =() => {
+    return fetch(`https://game-reviews-rated.herokuapp.com/api/categories`)
+    .then((res) => res.json());
+    };

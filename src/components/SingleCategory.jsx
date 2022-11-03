@@ -10,7 +10,6 @@ const SingleCategory = () => {
     useEffect(() => {
         getCategory(category_slug).then((categoryData) => {setCategory(categoryData)});
     }, [category_slug]);
-    console.log(category)
 if('msg' in category){
     return <p>There are no reviews in this category</p>
 } else {return ReviewLister(category)}
