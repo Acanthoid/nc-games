@@ -11,7 +11,7 @@ const NavBar = () => {
     return(
     <nav className="navBar"><ul>
     {categories.map((category) => {
-        return(
+        return (
         <li key={category.slug}>
             <Link to={`/categories/${category.slug}`}>{category.slug}</Link>
         </li>)
