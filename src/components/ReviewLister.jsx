@@ -1,11 +1,12 @@
 import Article from "./Article";
 
-function ReviewLister(list){
+function ReviewLister(props){
+    console.log(props)
 return(
     
     <section className="reviews">
-    <ul>
-    {list.map(
+    {/* <ul>
+    {reviews.map(
         (
             review
         ) => {
@@ -14,7 +15,7 @@ return(
             )
         }
     )}
-    </ul>
+    </ul> */}
 </section>
         
 );

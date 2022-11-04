@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCategory } from "../Api.js";
-import ReviewLister from "./ReviewLister.js";
+import ReviewLister from "./ReviewLister.jsx";
 
 const SingleCategory = () => {
-    const [category, setCategory] = useState ([])
+    const [reviews, setReviews] = useState ([])
     const { category_slug } = useParams();
+    console.log(category_slug)
 
     useEffect(() => {
-        getCategory(category_slug).then((categoryData) => {setCategory(categoryData)});
+        getCategory(category_slug).then((categoryData) => {setReviews(categoryData)});
     }, [category_slug]);
-if('msg' in category){
-    return <p>There are no reviews in this category</p>
-} else {return ReviewLister(category)}
+return <ReviewLister reviews={reviews} />
 
 };
 

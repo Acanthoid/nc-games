@@ -72,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 base api-
 https://game-reviews-rated.herokuapp.com/
+
+).then((res) => res.json());

@@ -1,11 +1,10 @@
 import { getReviews } from "../Api.js";
 import {useState, useEffect } from 'react';
-import ReviewLister from "./ReviewLister.js";
+import ReviewLister from "./ReviewLister.jsx";
 
 function Home() {
     const [reviews, setReviews] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    
 
     useEffect(() => {
         setIsLoading(true);
@@ -16,7 +15,7 @@ function Home() {
     }, []);
 
 if (isLoading) return <p className="loading">Loading...</p>
-    return ReviewLister(reviews)
+    return <ReviewLister reviews={reviews} />
 }
 
 export default Home;
