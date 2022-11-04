@@ -7,9 +7,7 @@ import SpecificReview from './SpecificReview';
 const SingleReview = () => {
     const { review_slug } = useParams();
     const [review, setReview] = useState([])
-    
-    getReview(review_slug).then((reviewData) => {setReview(reviewData)});
-    return SpecificReview(review);
-    }
-
+    useEffect(() => {getReview(review_slug).then((reviewData) => {setReview(reviewData)})},[])
+    return(<SpecificReview review={review}/>) 
+}
 export default SingleReview;
