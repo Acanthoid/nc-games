@@ -3,17 +3,20 @@ import { addVoteToApi } from "../Api";
 
 
 function AddVote(dataObject) {
-    const [currentVotes, newVotes] = useState(0);
-    console.log(currentVotes, 'HERE')
-    console.log(dataObject)
+    const [currentVotes, newVotes] = useState(dataObject.votes);
     
 function manageButton(){
     addVoteToApi(dataObject.review_id)
+    newVotes(currentVotes + 1)
 };
 
     return(
-        <button id="voteBtn"
-        onClick={manageButton}>Add your vote!</button>
+        <div>
+            Votes: {currentVotes}
+            <button id="voteButton"
+            onClick={manageButton}>Add your vote!</button>
+        </div>
+        
     )
 }
 
